@@ -11,12 +11,13 @@ export const Greeter: React.FC<any> = () => {
     const [inputGreeting, setInputGreeting] = useState("");
 
     useEffect(() => {
-        const initialize = async () => {
-            const greeting = await getGreeting(greeter);
-            setMessage(greeting)
-        };
-        initialize();
+        updateGreeting();
     }, [greeter]);
+
+    const updateGreeting = async () => {
+        const greeting = await getGreeting(greeter);
+        setMessage(greeting)
+    };
 
     const handleSetGreeting = async () => {
         await setGreeting(greeter, inputGreeting);

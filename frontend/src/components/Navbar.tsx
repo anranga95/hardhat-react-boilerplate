@@ -25,11 +25,8 @@ export const Navbar: React.FC<any> = (props) => {
             </Flex>
 
             <Stack
-                direction={{ base: "column", md: "row" }}
-                width={{ base: "full", md: "auto" }}
-                alignItems="center"
-                flexGrow={1}
-                mt={{ base: 4, md: 0 }}
+                direction={{ base: "column", md: "row" }} width={{ base: "full", md: "auto" }}
+                alignItems="center" flexGrow={1} mt={{ base: 4, md: 0 }}
             >
                 <Text>Docs</Text>
                 <Text>Examples</Text>
