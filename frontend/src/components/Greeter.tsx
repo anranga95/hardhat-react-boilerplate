@@ -1,37 +1,51 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { GreeterContext } from "./../hardhat/SymfoniContext";
 
-interface Props { }
+import { Text, Input, Button, Box, Center, Stack } from '@chakra-ui/react';
+import { getGreeting, setGreeting } from '../dapi';
 
-export const Greeter: React.FC<Props> = () => {
+export const Greeter: React.FC<any> = () => {
     const greeter = useContext(GreeterContext)
+
     const [message, setMessage] = useState("");
     const [inputGreeting, setInputGreeting] = useState("");
+
     useEffect(() => {
-        const doAsync = async () => {
-            if (!greeter.instance) return
-            console.log("Greeter is deployed at ", greeter.instance.address)
-            setMessage(await greeter.instance.greet())
-
+        const initialize = async () => {
+            const greeting = await getGreeting(greeter);
+            setMessage(greeting)
         };
-        doAsync();
-    }, [greeter])
+        initialize();
+    }, [greeter]);
 
-    const handleSetGreeting = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        e.preventDefault()
-        if (!greeter.instance) throw Error("Greeter instance not ready")
-        if (greeter.instance) {
-            const tx = await greeter.instance.setGreeting(inputGreeting)
-            console.log("setGreeting tx", tx)
-            await tx.wait()
-            console.log("New greeting mined, result: ", await greeter.instance.greet())
-        }
+    const handleSetGreeting = async () => {
+        await setGreeting(greeter, inputGreeting);
+        setMessage(inputGreeting);
+        setInputGreeting('');
     }
+
     return (
-        <div>
-            <p>{message}</p>
-            <input onChange={(e) => setInputGreeting(e.target.value)}></input>
-            <button onClick={(e) => handleSetGreeting(e)}>Set greeting</button>
-        </div>
+        <Box p={2}>
+            <Center>
+                <Stack spacing={3}>
+                    <Text fontSize="2xl">Current Greeting:</Text>
+                    <Text fontSize="3xl">{message}</Text>
+                </Stack>
+            </Center>
+
+            <Input
+                my={1} placeholder="Add greeting..." size="lg"
+                value={inputGreeting} onChange={(e) => setInputGreeting(e.target.value)}
+            />
+
+            <Center>
+                <Button
+                    my={1} onClick={() => handleSetGreeting()}
+                    variant="outline" _hover={{ bg: "teal.700", borderColor: "teal.700" }}
+                >
+                    Set greeting
+                </Button>
+            </Center>
+        </Box>
     )
 }
