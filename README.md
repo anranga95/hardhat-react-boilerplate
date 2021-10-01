@@ -1,9 +1,9 @@
 # Introducing: SHERT Stack
 
-A cutting-edge tech stack for streamlined dApp development, using the latest & greatest open-source libraries.
+A cutting-edge tech stack for streamlined dApp development, using the latest & greatest open-source technologies.
 
 1. Solidity - Write your Smart Contracts!
-2. Hardhat - Run blockchain node; compile, deploy, and test contracts
+2. Hardhat - Run local blockchain node; compile, deploy, and test contracts
 3. Ethers - Interface with EVM smart contracts using Javascript
 4. React - Popular UI development framework
 5. Typechain - Generates Typescript bindings for smart contracts
