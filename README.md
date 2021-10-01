@@ -3,25 +3,15 @@
 A cutting-edge tech stack for streamlined dApp development, using the latest & greatest open-source libraries.
 
 1. Solidity
-```
 Write your Smart Contracts!
-```
 2. Hardhat
-```
 Runs blockchain node; compile, deploy, and test contracts
-```
 3. Ethers
-```
 Interface with EVM smart contracts using Javascript
-```
 4. React
-```
 Popular front-end development framework
-```
 5. Typechain
-```
 Generates Typescript bindings for smart contracts
-```
 
 # Get started
 
