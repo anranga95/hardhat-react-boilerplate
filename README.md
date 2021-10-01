@@ -1,6 +1,31 @@
+# Introducing: SHERT Stack
+
+A cutting-edge tech stack for streamlined dApp development, using the latest & greatest open-source libraries.
+
+1. Solidity
+```
+Write your Smart Contracts!
+```
+2. Hardhat
+```
+Runs blockchain node; compile, deploy, and test contracts
+```
+3. Ethers
+```
+Interface with EVM smart contracts using Javascript
+```
+4. React
+```
+Popular front-end development framework
+```
+5. Typechain
+```
+Generates Typescript bindings for smart contracts
+```
+
 # Get started
 
-1. Clone the repo and cd into it `git clone https://github.com/symfoni/hardhat-react-boilerplate.git MyProject && cd MyProject`
+1. Clone the repo and cd into it `git clone https://github.com/anranga95/shert-stack-boilerplate.git shert-dApp && cd shert-dApp`
 2. Install deps with yarn `yarn` or npm `npm install`
 3. Start hardhat `npx hardhat node --watch`
 
